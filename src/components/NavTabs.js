@@ -1,30 +1,26 @@
 import React from "react";
 
 function NavTabs(props) {
-  return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <a href="#home" onClick={() => props.handlePageChange("Home")} className="nav-link">
-          Home
+    return (
+        <ul className="nav nav-tabs">
+            <li className="nav-item"><h5>Pupster</h5></li>
+            <li className="nav-item">
+                <a href="/" onClick={() => props.handlePageChange("About")} className="nav-link">
+                    About
         </a>
-      </li>
-      <li className="nav-item">
-        <a href="#about" onClick={() => props.handlePageChange("About")} className="nav-link">
-          About
+            </li>
+            <li className="nav-item">
+                <a href="/discover" onClick={() => props.handlePageChange("Discover")} className="nav-link">
+                    Discover
         </a>
-      </li>
-      <li className="nav-item">
-        <a href="#blog" onClick={() => props.handlePageChange("Discover")} className="nav-link">
-          Blog
+            </li>
+            <li className="nav-item">
+                <a href="/search" onClick={() => props.handlePageChange("Search")} className="nav-link">
+                    Search
         </a>
-      </li>
-      <li className="nav-item">
-        <a href="#contact" onClick={() => props.handlePageChange("Search")} className="nav-link">
-          Contact
-        </a>
-      </li>
-    </ul>
-  );
+            </li>
+        </ul>
+    );
 }
 
 export default NavTabs;

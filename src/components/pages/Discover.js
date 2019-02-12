@@ -1,18 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../../utils/API";
 
-function Discover() {
-  return (
-    <div>
-      <h1>About Page</h1>
-      <p>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui
-        mauris, ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus
-        porta. Nam quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam
-        semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed
-        rhoncus mollis diam, sit amet facilisis lectus blandit at.
-      </p>
-    </div>
-  );
+class Discover extends Component {
+    state = {
+        results: {}
+    }
+
+    
+    searchPuppies = () => {
+        API.searchPuppy()
+        .then(res => this.setState({results:res.data}))
+        
+        .catch(err => console.log(err));
+    };
+    
+    componentDidMount() {
+        this.searchPuppies();
+    }
+
+    render() {
+        return (
+            <div>
+            <h1>Make New Friends</h1>
+            <h6>Thumbs up on any pups you'd like to meet</h6>
+            <img src={this.results} alt="puppyimage"></img>
+            </div>
+        );
+    }
+
 }
 
 export default Discover;
